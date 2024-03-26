@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\workspace\05_Server_동영상\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3413765401.index
+\JSPProject2_\src\main\java
+C:\workspace\05_Server_동영상\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1954694312.index
+\JSPProject2_\src\main\java

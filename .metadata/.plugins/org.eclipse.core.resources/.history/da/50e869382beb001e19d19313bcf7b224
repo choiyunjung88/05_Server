@@ -1,0 +1,5 @@
+package edu.kh.todoList.member.model.dto;
+
+public class Member {
+
+}

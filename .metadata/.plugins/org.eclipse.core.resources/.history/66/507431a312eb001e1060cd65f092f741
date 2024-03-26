@@ -1,0 +1,29 @@
+package edu.kh.jsp.student.model.dao;
+
+
+import java.io.FileInputStream;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
+public class StudentDAO {
+
+	//JDBC 객체 저장용 참조 변수 선언
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	private Properties prop;
+	
+	public StudentDAO() {
+		try {
+			String filePath = StudentDAO.class.getResource("/edu/kh/jsp/sql/student-sql.xml").getPath();
+			prop = new Properties();
+			prop.loadFromXML(new FileInputStream(filePath));
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+}

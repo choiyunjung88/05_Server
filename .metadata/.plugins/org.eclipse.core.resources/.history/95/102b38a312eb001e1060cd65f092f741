@@ -1,0 +1,8 @@
+package edu.kh.jsp.student.model.service;
+
+import edu.kh.jsp.student.model.dao.StudentDAO;
+
+public class StudentService {
+
+	private StudentDAO dao = new StudentDAO();
+}

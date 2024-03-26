@@ -1,0 +1,9 @@
+package edu.kh.jsp.student.model.dto;
+
+public class Student {
+
+	private String studentNo;
+	private String studentName;
+	private String studentAddress;
+	private String departmentName;
+}
