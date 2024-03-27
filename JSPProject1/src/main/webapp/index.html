@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JSPProject1</title>
+    </head>
+    <body>
+        <h1>로그인 테스트</h1>
+        <pre></pre>
+        <form action="/login" method="post">
+            ID : <input type="text" name="id" /> PW :
+            <input type="password" name="pw" />
+            <button>LOGIN</button>
+        </form>
+        <hr />
+        <h1>a 태그 클릭시 화면 전환하기</h1>
+        <h3>a 태그, js 코드 요청은 모두 get방식</h3>
+        <a href="/test/result">페이지 이동</a>
+        <hr />
+        <h1>피자 주문하기</h1>
+        <form action="/pizzaOrder" method="post">
+            피자 :
+            <select name="pizza">
+                <option value="1">치즈8000</option>
+                <option value="2">불고기9000</option>
+                <option value="3">고구마10000</option>
+            </select>
+
+            <br /><br />
+
+            사이즈 <br />
+            <label> R <input type="radio" name="size" value="R" /> </label>
+            <label> L <input type="radio" name="size" value="L" /> </label>
+
+            <br /><br />
+
+            수량 :
+            <button id="minus" type="button">-</button>
+            <span id="amount">0</span>
+            <button id="plus" type="button">+</button>
+
+            <input type="hidden" name="amount" value="0" />
+            <br /><br />
+            <button>주문하기</button>
+        </form>
+
+        <script>
+            const plus = document.getElementById("plus");
+            const minus = document.getElementById("minus");
+            const amount = document.getElementById("amount");
+            const input = document.querySelector("[name='amount']");
+
+            // plus 클릭시
+            plus.addEventListener("click", () => {
+                amount.innerText++;
+                input.value = amount.innerText;
+            });
+
+            // minus
+            minus.addEventListener("click", () => {
+                //0이면 핸들러 종료
+                if (amount.innerText == 0) return;
+                amount.innerText--;
+                input.value = amount.innerText;
+            });
+        </script>
+    </body>
+</html>
