@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <publish-info>
   <server id="Servlet Server" path="publish0.dat"/>
+  <server id="coupang" path="publish2.dat"/>
   <server id="todolist" path="publish1.dat"/>
 </publish-info>

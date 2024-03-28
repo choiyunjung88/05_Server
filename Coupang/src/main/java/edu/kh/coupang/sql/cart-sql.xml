@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<entry key="selectAll">
+		SELECT CART_NO, CART_TITLE, CART_MEMO, CART_DATE
+		FROM "CART"
+		WHERE MEMBER_NO = ?
+		AND CART_DEL_FL = 'N'
+	</entry>
+	
+	<entry key="insert">
+		INSERT INTO "CART"
+		VALUES(SEQ_CART_NO.NEXTVAL, ?, ?, DEFAULT, DEFAULT, ?)
+	</entry>
+	
+	<entry key="delete">
+		UPDATE CART SET
+		CART_DEL_FL = 'Y'
+		WHERE CART_NO = ?
+	</entry>
+	
+	<entry key="selectOne">
+		SELECT CART_NO, CART_TITLE, CART_MEMO, CART_DATE
+		FROM "CART"
+		WHERE MEMBER_NO = ?
+		AND CART_DEL_FL = 'N'
+		AND CART_NO = ?
+	</entry>
+	
+	<entry key="update">
+		UPDATE CART SET
+		CART_TITLE = ?,
+		CART_MEMO = ?
+		WHERE CART_NO = ?
+		AND MEMBER_NO = ?
+	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</properties>
