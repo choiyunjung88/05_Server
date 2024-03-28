@@ -20,4 +20,8 @@ public class Member {
 	private String memberNickname;
 	private String enrollDate;
 	private String memberDeleteFlag;
+	public int getMemberNo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -1,6 +1,7 @@
 package edu.kh.coupang.common;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -35,15 +36,11 @@ public class JDBCTemplate {
 				Properties prop = new Properties();
 				// Map<String, String> 형태의 객체, XML 입출력 특화
 				
-				String filePath 
-					= JDBCTemplate.class.getResource("/edu/kh/coupang/sql/driver.xml").getPath();
-				
-				System.out.println(filePath);
-				
-				// /C:/workspace/05_Server/...
-				
-				// driver.xml 파일 읽어오기
-				prop.loadFromXML( new FileInputStream( filePath ) );
+				// 리소스로부터 직접 InputStream으로 읽어오기
+				InputStream inputStream = JDBCTemplate.class.getResourceAsStream("/edu/kh/coupang/sql/driver.xml");
+				// Properties 객체 생성
+				// InputStream으로부터 XML 파일 로드
+				prop.loadFromXML(inputStream);
 				// -> XML 파일에 작성된 내용이 Properties 객체에 모두 저장됨.
 				
 				// XML에서 읽어온 값을 모두 변수에 저장

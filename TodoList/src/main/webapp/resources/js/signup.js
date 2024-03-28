@@ -2,7 +2,7 @@
 
 // 유효성 검사 객체
 const checkObj = { 
-    "inputId" : false, // 아이디
+    "inputId" : true, // 아이디
     "inputPw" : false, // 비밀번호
     "inputPwConfirm" : false, // 비번확인
     "inputName" : false // 닉네임
@@ -11,7 +11,7 @@ const checkObj = {
 // 아이디 유효성 검사
 const inputId = document.getElementById("inputId");
 
-inputId.addEventListener("change", function() {
+inputPw.addEventListener("change", function() {
 
     const regExp = /^[a-z][\w!@#$%^&*_-]{5,13}$/;
     //소문자 시작(1) + 나머지(5~13) = 6~14글자
@@ -19,11 +19,11 @@ inputId.addEventListener("change", function() {
     if(regExp.test(this.value)) {
         this.style.backgroundColor = "green";
         this.style.color = "white";
-        checkObj.inputId = true;
+        checkObj.inputPw = true;
     } else {
         this.style.backgroundColor = "red";
         this.style.color = "white";
-        checkObj.inputId = false;
+        checkObj.inputPw = false;
     }
 });
 

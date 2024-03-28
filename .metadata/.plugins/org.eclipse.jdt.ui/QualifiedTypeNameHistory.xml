@@ -30,4 +30,5 @@
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="edu.kh.coupang.cart.model.dto.Cart"/>
     <fullyQualifiedTypeName name="edu.kh.coupang.cart.model.service.CartService"/>
+    <fullyQualifiedTypeName name="java.io.InputStream"/>
 </qualifiedTypeNameHistroy>

@@ -6,8 +6,16 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\SAMSUNG\OneDrive\바탕 화면\workspace\05_Server"/>
 			<item value="C:\workspace\05_Server"/>
 		</list>
+		<section name="SmartImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="12"/>
+			<item key="DIALOG_Y_ORIGIN" value="17"/>
+			<item key="DIALOG_WIDTH" value="953"/>
+			<item key="DIALOG_HEIGHT" value="767"/>
+			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|12.75|0|WINDOWS|1|-17|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		</section>
 	</section>
 	<section name="NewWizardAction">
 	</section>
