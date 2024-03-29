@@ -15,7 +15,7 @@ public class CartService {
 	 * @param memberNo
 	 * @return CARTList
 	 */
-	public static List<Cart> selectAll(int memberNo) throws Exception{
+	public List<Cart> selectAll(int memberNo) throws Exception{
 		
 		Connection conn = getConnection();
 		

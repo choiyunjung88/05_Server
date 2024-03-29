@@ -58,11 +58,9 @@ public class UpdateController extends HttpServlet {
 			if(result > 0) {
 				session.setAttribute("message", "수정 되었습니다!");
 				
-				// cartList 갱신된 값으로 재등록
 				List<Cart> cartList = service.selectAll(member.getMemberNo());
 				session.setAttribute("cartList", cartList);
 				
-				// 메인페이지로 재요청
 				resp.sendRedirect("/");
 				
 			} else {

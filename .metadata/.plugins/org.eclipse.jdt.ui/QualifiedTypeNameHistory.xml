@@ -11,9 +11,7 @@
     <fullyQualifiedTypeName name="edu.kh.todoList.todo.model.dao.TodoDAO"/>
     <fullyQualifiedTypeName name="edu.kh.jsp.model.dto.Pizza"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="jakarta.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
-    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
@@ -31,4 +29,6 @@
     <fullyQualifiedTypeName name="edu.kh.coupang.cart.model.dto.Cart"/>
     <fullyQualifiedTypeName name="edu.kh.coupang.cart.model.service.CartService"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>

@@ -1,39 +1,36 @@
 //console.log("signup.js loaded.");
 
 // 유효성 검사 객체
-const checkObj = { 
-    "inputId" : true, // 아이디
-    "inputPw" : false, // 비밀번호
-    "inputPwConfirm" : false, // 비번확인
-    "inputName" : false // 닉네임
+const checkObj = {
+    inputId: true, // 아이디
+    inputPw: false, // 비밀번호
+    inputPwConfirm: false, // 비번확인
+    inputName: false, // 닉네임
 };
 
 // 아이디 유효성 검사
 const inputId = document.getElementById("inputId");
 
-
-
-
 const inputPw = document.getElementById("inputPw");
 const inputPwConfirm = document.getElementById("inputPw2");
-inputPw.addEventListener("change", function() {
-
+inputPw.addEventListener("change", function () {
     const regExp = /^[a-z][\w!@#$%^&*_-]{7,13}$/;
     //소문자 시작(1) + 나머지(5~13) = 6~14글자
 
-    if(regExp.test(this.value)) {
-        this.style.backgroundColor = "green";
-        this.style.color = "white";
+    if (regExp.test(this.value)) {
+        pwMessage.classList.add("confirm");
+        pwMessage.classList.remove("error");
         checkObj.inputPw = true;
     } else {
-        this.style.backgroundColor = "red";
-        this.style.color = "white";
+        nameMessage.innerText =
+            "영어 소문자, 숫자, _- 특수문자 8~14글자로 입력하세요";
+        nameMessage.classList.add("error");
+        nameMessage.classList.remove("confirm");
         checkObj.inputPw = false;
     }
 });
-inputPwConfirm.addEventListener("keyup", function() {
-
-    if(inputPw.value.length == 0) {
+inputPwConfirm.addEventListener("keyup", function () {
+    if (inputPw.value.length == 0) {
         this.value = "";
         alert("비밀번호를 먼저 입력해주세요");
         inputPw.focus();
@@ -43,9 +40,8 @@ inputPwConfirm.addEventListener("keyup", function() {
 
 const pwMessage = document.getElementById("pwMessage");
 
-inputPw.addEventListener("keyup", function() {
-
-    if( (inputPw.value == inputPwConfirm.value) && inputPw.value.length != 0) {
+inputPw.addEventListener("keyup", function () {
+    if (inputPw.value == inputPwConfirm.value && inputPw.value.length != 0) {
         pwMessage.innerText = "비밀번호 일치";
         pwMessage.classList.add("confirm");
         pwMessage.classList.remove("error");
@@ -59,10 +55,8 @@ inputPw.addEventListener("keyup", function() {
     }
 });
 
-
-inputPwConfirm.addEventListener("keyup", function() {
-
-    if( (inputPw.value == inputPwConfirm.value) && inputPw.value.length != 0) {
+inputPwConfirm.addEventListener("keyup", function () {
+    if (inputPw.value == inputPwConfirm.value && inputPw.value.length != 0) {
         pwMessage.innerText = "비밀번호 일치";
         pwMessage.classList.add("confirm");
         pwMessage.classList.remove("error");
@@ -76,16 +70,16 @@ inputPwConfirm.addEventListener("keyup", function() {
     }
 });
 
-// 닉네임 유효성 검사 
+// 닉네임 유효성 검사
 // 2~5 한글만
 const inputName = document.getElementById("inputName");
 
-inputName.addEventListener("change", function() {
+inputName.addEventListener("change", function () {
     const regExp = /^[가-힣]{2,5}$/;
 
     const nameMessage = document.getElementById("nameMessage");
 
-    if(regExp.test(this.value)) {
+    if (regExp.test(this.value)) {
         nameMessage.innerText = "정상입력";
         nameMessage.classList.add("confirm");
         nameMessage.classList.remove("error");
@@ -96,18 +90,15 @@ inputName.addEventListener("change", function() {
         nameMessage.classList.remove("confirm");
         checkObj.inputName = false;
     }
-
 });
-
 
 // 최종적으로 유효성 검사 객체인 checkObj안에 있는 모든 value가
 // true 인지 확인해주는 함수
 // 만약 모두 true다 -> 서버로 submit
 // 만약 하나라도 false다 -> 유효성검사가 완료되지않았습니다.
 function validate() {
-
-    for(let key in checkObj) {
-        if( !checkObj[key] ) {
+    for (let key in checkObj) {
+        if (!checkObj[key]) {
             alert("유효성 검사가 완료되지 않았습니다");
             return false;
         }

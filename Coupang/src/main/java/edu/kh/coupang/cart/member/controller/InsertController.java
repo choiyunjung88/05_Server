@@ -16,7 +16,6 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/insert")
 public class InsertController extends HttpServlet{
 	
-	// cart 등록 화면 전환 요청
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -24,7 +23,6 @@ public class InsertController extends HttpServlet{
 		
 	}
 	
-	// cart 등록할 서비스 호출 요청
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -44,10 +42,9 @@ public class InsertController extends HttpServlet{
 			if(result > 0) {
 				session.setAttribute("message", "등록되었습니다.");
 				
-				// cartList 갱신된것 구해서 속성값으로 재등록
 				List<Cart> cartList = service.selectAll(member.getMemberNo());
 				session.setAttribute("cartList", cartList);
-				
+				String referer = req.getHeader("referer");
 				resp.sendRedirect("/");
 				
 			} else {

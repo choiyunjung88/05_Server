@@ -26,7 +26,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                     <span id="message"></span>
                                 </section>
                                 <section id="id-area">
-                                    <input id="id-input" type="text" placeholder="아이디(이메일)">
+                                    <input id="id-input" name="inputId" type="text" placeholder="아이디(이메일)">
                                 </section>
                             </section>
                             <section class="pw">
@@ -34,13 +34,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                     <span id="lock"></span>
                                 </section>
                                 <section id="pw-area">
-                                    <input id="pw-input" type="password" placeholder="비밀번호">
-                                </section>
-                            </section>
-                            <section class="menu">
-                                <section>
-                                    <a href="#">아이디(이메일)/비밀번호 찾기</a>
-                                    <span id="right"></span>
+                                    <input id="pw-input" name="inputPw" type="password" placeholder="비밀번호">
                                 </section>
                             </section>
                             <button id="login-btn">로그인</button>
@@ -68,7 +62,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                     type="search"
                                                     name="search"
                                                     autocomplete="off"
-                                                    placeholder="검색"
+                                                    placeholder="    검색"
                                                 />
                                                 <button
                                                     id="search-btn"
@@ -94,16 +88,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     </header>
                     <section class="content">
                         <section id="ads">
-                            <a href="/add1">
+                            <a href="https://www.coupang.com/np/campaigns/83">
                                 <img src="../images/add1.jpg" id="ad1" />
                             </a>
-                            <a href="/add2">
+                            <a href="https://www.coupang.com/np/campaigns/11725/components/194176">
                                 <img src="../images/add2.jpg" id="ad2" />
                             </a>
-                            <a href="/add3">
+                            <a href="https://www.coupang.com/">
                                 <img src="../images/add3.jpg" id="ad3" />
                             </a>
-                            <a href="/add4">
+                            <a href="https://www.coupang.com/np/campaigns/12456">
                                 <img src="../images/add4.jpg" id="ad4" />
                             </a>
                         </section>
@@ -111,22 +105,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 </c:otherwise>
             </c:choose>
         </main>
-		<%-- session에 message가 존재할 경우 --%>
-		<%-- not empty : 비어있지 않을 경우 true --%>
 		<c:if test="${not empty sessionScope.message}">
 			
 			<script>
-				// EL/JSTL 구문이 자바스크립트보다 먼저 해석되는데
-				// 문자열이 들어가있는 데이터의 경우
-				//	따옴표가 없는 상태이니 붙여줘야한다!
 				alert('${message}');
 			</script>
 		
-			<%-- 
-				session에 message를 추가하면
-				브라우저 종료 또는 만료전까지 계속 메시지가 출력된다
-				-> 1회 출력 후 session에서 message 삭제
-			 --%>
 			 <c:remove var="message" scope="session" />
 		
 		</c:if>

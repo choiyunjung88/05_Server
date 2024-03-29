@@ -2,13 +2,10 @@ DROP USER coupang CASCADE;
 
 ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 
--- 새로운 사용자 계정 생성 (sys 계정으로 진행)
 CREATE USER coupang IDENTIFIED BY coupang;
 
--- 사용자 계정 권한 부여 설정
 GRANT RESOURCE, CONNECT TO coupang;
 
--- 객체가 생성될 수 있는 공간 할당량 지정
 ALTER USER coupang DEFAULT TABLESPACE SYSTEM QUOTA UNLIMITED ON SYSTEM;
 
 --------------------------------------------------
@@ -36,26 +33,16 @@ COMMENT ON COLUMN "MEMBER"."MEMBER_DEL_FL" IS '탈퇴여부(N:탈퇴X, Y: 탈퇴
 ALTER TABLE "MEMBER" ADD CONSTRAINT "PK_MEMBER" PRIMARY KEY (
 	"MEMBER_NO"
 );
--- 탈퇴여부 CHECK 제약 조건
+
 ALTER TABLE "MEMBER" ADD CONSTRAINT "CH_MEMBER_DEL_FL" 
 CHECK("MEMBER_DEL_FL" IN ('N', 'Y'));
 
 
--- 시퀀스 생성
 CREATE SEQUENCE SEQ_MEMBER_NO NOCACHE;
 
--- 샘플 계정 추가
 INSERT INTO "MEMBER"
-VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user01', 'pass01'
-	, '유저일', DEFAULT, DEFAULT);
-
--- 샘플 계정 추가
-INSERT INTO "MEMBER"
-VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user02', 'pass02'
-	, '유저이', DEFAULT, DEFAULT);
-
-DELETE FROM "MEMBER"
-WHERE MEMBER_ID = 'user02';
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user03', 'pass03'
+	, '이옥순', DEFAULT, DEFAULT);
 
 CREATE TABLE "CART" (
 	"CART_NO" NUMBER NOT NULL,
@@ -78,7 +65,6 @@ COMMENT ON COLUMN "CART"."CART_DEL_FL" IS '삭제 여부(N : 삭제X , Y : 삭�
 
 COMMENT ON COLUMN "CART"."MEMBER_NO" IS '작성자 회원 번호';
 
--- 시퀀스 생성
 CREATE SEQUENCE SEQ_CART_NO NOCACHE;
 
 ALTER TABLE "CART" ADD CONSTRAINT "PK_CART" PRIMARY KEY (
@@ -91,11 +77,6 @@ ALTER TABLE "CART" ADD CONSTRAINT "FK_MEMBER_TO_CART" FOREIGN KEY (
 REFERENCES "MEMBER" (
 	"MEMBER_NO"
 );
-
--- 샘플 투두 추가
-INSERT INTO "CART"
-VALUES(SEQ_CART_NO.NEXTVAL, '휴지', '1'
-	, DEFAULT, DEFAULT, 1);
 
 COMMIT;
 

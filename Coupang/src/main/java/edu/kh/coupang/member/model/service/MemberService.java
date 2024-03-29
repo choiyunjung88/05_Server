@@ -45,6 +45,18 @@ public class MemberService {
 		return result;
 		
 	}
+
+	public Member user(String inputId, String inputPw) throws Exception {
+Connection conn = getConnection();
+		
+		Member loginMember = dao.user(conn, inputId, inputPw);
+		
+		close(conn);
+		
+		
+		return loginMember;
+		
+	}
 	
 	
 	

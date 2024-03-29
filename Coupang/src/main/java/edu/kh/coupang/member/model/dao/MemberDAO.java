@@ -96,4 +96,36 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public Member user(Connection conn, String inputId, String inputPw) throws Exception{
+		Member loginMember = null;
+		try {
+		String sql = prop.getProperty("user");
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, inputId);
+		pstmt.setString(2, inputPw);
+		
+		rs = pstmt.executeQuery();
+		
+
+		
+		if(rs.next()) {
+			loginMember = new Member();
+			loginMember.setMemberNo( rs.getInt(1) );
+			loginMember.setMemberId( rs.getString(2) );
+			loginMember.setMemberNickname( rs.getString(3) );
+			loginMember.setEnrollDate( rs.getString(4) );
+			
+		}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+	
+		}
+		return loginMember;
+		
+	}
 }

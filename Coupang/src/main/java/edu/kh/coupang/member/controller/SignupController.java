@@ -14,15 +14,12 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/signup")
 public class SignupController extends HttpServlet{
 
-	// 회원가입 폼으로 이동
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.getRequestDispatcher("/WEB-INF/views/signup.jsp").forward(req, resp);
 		
 	}
-	
-	// 회원가입 폼에서 실제 데이터를 가지고 회원가입 기능 할 수 있도록 요청
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		

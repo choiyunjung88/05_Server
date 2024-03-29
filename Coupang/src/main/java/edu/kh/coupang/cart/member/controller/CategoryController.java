@@ -13,38 +13,32 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/delete")
-public class DeleteController extends HttpServlet {
+@WebServlet("/category")
+public class CategoryController extends HttpServlet {
+
+	private CartService service = new CartService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
-			String cartNo = req.getParameter("cartNo");
-			
-			CartService service = new CartService();
-			
-			int result = service.delete(cartNo);
-			
+			System.out.println("doget요청성공");
 			HttpSession session = req.getSession();
 			Member member = (Member) session.getAttribute("loginMember");
 			
-			if(result > 0) {
-				
-				List<Cart> cartList = service.selectAll(member.getMemberNo());
-				session.setAttribute("cartList", cartList);
-				
-				
-			} else {
-				session.setAttribute("message", "삭제 실패!");
-				
-			}
+			List<Cart> cart = service.selectAll(member.getMemberNo());
+			System.out.println(cart);
+			req.setAttribute("cart", cart);
 			
-			resp.sendRedirect("/");
+			req.getRequestDispatcher("/WEB-INF/views/category.jsp").forward(req, resp);
 			
-		} catch (Exception e) {
-			System.out.println("[삭제 중 예외발생]");
+			
+		} catch(Exception e) {
+			System.out.println("[category 조회 중 예외발생]");
 			e.printStackTrace();
 		}
+		
 	}
+	
+
 }

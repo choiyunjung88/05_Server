@@ -13,38 +13,23 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/delete")
-public class DeleteController extends HttpServlet {
+@WebServlet("/search")
+public class SearchController extends HttpServlet {
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
-			String cartNo = req.getParameter("cartNo");
+			req.getRequestDispatcher("/WEB-INF/views/search.jsp").forward(req, resp);
 			
-			CartService service = new CartService();
 			
-			int result = service.delete(cartNo);
-			
-			HttpSession session = req.getSession();
-			Member member = (Member) session.getAttribute("loginMember");
-			
-			if(result > 0) {
-				
-				List<Cart> cartList = service.selectAll(member.getMemberNo());
-				session.setAttribute("cartList", cartList);
-				
-				
-			} else {
-				session.setAttribute("message", "삭제 실패!");
-				
-			}
-			
-			resp.sendRedirect("/");
-			
-		} catch (Exception e) {
-			System.out.println("[삭제 중 예외발생]");
+		} catch(Exception e) {
+			System.out.println("[search 조회 중 예외발생]");
 			e.printStackTrace();
 		}
+		
 	}
+	
+
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +36,6 @@
 		</form>
 	</main>
 	
-	<%-- 해당 jsp 파일에서 사용할 javascript 코드가 작성된 js 파일 연결하기 --%>
 	<script src="./resources/js/signup.js"></script>
 	
 	

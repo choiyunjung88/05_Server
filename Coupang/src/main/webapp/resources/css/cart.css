@@ -1,0 +1,85 @@
+@font-face {
+    font-family: "GmarketSansMedium";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "GmarketSansMedium";
+}
+img {
+    margin-top: 60px;
+    width: 300px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-div {
+    flex-direction: row;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: rgb(11, 137, 255);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#button {
+    background-color: white;
+    color: rgb(11, 137, 255);
+}
+p {
+    border: none;
+    color: rgb(11, 137, 255);
+    font-weight: bold;
+    font-size: 50px;
+    border: solid rgb(11, 137, 255);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.c {
+    font-size: 20px;
+}
+
+input {
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+}
+
+textarea {
+    width: 400px;
+    height: 300px;
+    font-size: 20px;
+}
+
+.b {
+    font-size: 40px;
+}
+
+.tr {
+    border: 50px solid gray;
+    border-collapse: collapse;
+}

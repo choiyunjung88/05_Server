@@ -9,16 +9,6 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class JDBCTemplate {
-	/* DB 연결 (Connection 생성) , 자동 커밋 off
-	 * 트랜잭션 제어, JDBC 객제 자원 반환(close)
-	 * 
-	 * 이러한 JDBC에서 반복 사용되는 코드를 모아둔 클래스
-	 * 
-	 * * 모든 필드, 메서드가 static * 
-	 * -> 별도 객체 생성 X
-	 * -> 어디서든지 클래스명.필드명 / 클래스명.메서드명 호출 가능
-	 * 
-	 * */
 	
 	private static Connection conn = null;
 	
@@ -29,33 +19,17 @@ public class JDBCTemplate {
 		
 		try {
 			
-			// 현재 커넥션 객체가 없을 경우 -> 새 커넥션 객체 생성
 			if(conn == null || conn.isClosed() ) {
-				// conn.isClosed() : 커넥션이 close 상태면 true 반환
 				
 				Properties prop = new Properties();
-				// Map<String, String> 형태의 객체, XML 입출력 특화
-				
-				// 리소스로부터 직접 InputStream으로 읽어오기
 				InputStream inputStream = JDBCTemplate.class.getResourceAsStream("/edu/kh/coupang/sql/driver.xml");
-				// Properties 객체 생성
-				// InputStream으로부터 XML 파일 로드
 				prop.loadFromXML(inputStream);
-				// -> XML 파일에 작성된 내용이 Properties 객체에 모두 저장됨.
-				
-				// XML에서 읽어온 값을 모두 변수에 저장
 				String driver = prop.getProperty("driver");
 				String url = prop.getProperty("url");
 				String user = prop.getProperty("user");
 				String password = prop.getProperty("password");
-				
-				// 커넥션 생성
-				Class.forName(driver); // Oracle JDBC Driver 객체 메모리 로드
-				
-				// DriverManager를 이용해 Connection 객체 생성
+				Class.forName(driver); 
 				conn = DriverManager.getConnection(url, user, password);
-				
-				// 자동 커밋 비활성화
 				conn.setAutoCommit(false);
 			}
 			
@@ -76,9 +50,6 @@ public class JDBCTemplate {
 	public static void close(Connection conn) {
 		
 		try {
-			// 전달 받은 conn이
-			// 참조하는 Connection 객체가 있고
-			// 그 Connection 객체가 close 상태가 아니라면
 			if(conn != null && !conn.isClosed()) conn.close();
 			
 		} catch(Exception e) {
